@@ -76,6 +76,7 @@ func forLoopWithArray(arr [3]int) {
 
  func learnSlices() {
 	 //Slice có phần tử kiểu T và được biểu thị bằng []T
+	 //Giá trị mặc định của slices là nil
 	 //Slice là kiểu tham chiếu giá trị
 	 //Tạo slice (từ mảng, từ slice khác -> slice mới sẽ tham chiếu đến mảng, slice gốc, tạo nhanh, tạo bằng hàm make, tạo bằng hàm copy)
 	 //Tạo slice từ array
