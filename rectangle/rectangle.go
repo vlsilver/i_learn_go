@@ -2,6 +2,8 @@ package retangle
 
 import ("math")
 
+var retangle = 0
+
 // init sẽ được chạy khi package được import
 func init() {
 	println("Hàm init() của package rectangle được gọi")

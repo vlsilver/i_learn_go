@@ -5,15 +5,14 @@ package main
 import (
 	"fmt"
 	"i_go/rectangle"
-	_"i_go/test_identifier" // import pacakage nhưng không sử dụng bất kì hàm nào
-	"log"
+	_ "i_go/test_identifier" // import pacakage nhưng không sử dụng bất kì hàm nào
 )
 // init hàm sẽ được gọi sau khi biến cục bộ được khởi tạo
 // check nếu data cục bộ không thoả yêu cầu sẽ dừng chương trình.
 func init() {
 	fmt.Println("Hàm init() của package main được gọi")
 	if len < 0 || wid < 0 {
-		log.Fatalln("len and wid is less than zero")
+		//log.Fatalln("len and wid is less than zero")
 	}
 }
 // biến cục bộ của package được khởi tạo đầu tiên khi package được import
@@ -49,9 +48,12 @@ func main() {
 			//->Nếu muốn import trước một số package mà không dùng ngay bây giờ, có thể thực hiện bằng bách.
 				//->giả định sử dụng packages: -> var A = package.Functionname -> khuyến khích sử dụng
 				//->chỉ dùng để đảm bảo việc khởi tạo, không cần sử dụng bất kỳ hàm, biến nào của package -> import (_ "namepackage")
+		//Khi 2 file cùng chung 1 package có thể cùng sử dụng chung các function và variable
 	var len,width float64 = 6,7
 	var diagonal = retangle.Diagonal(len,width)
 	var area = retangle.Area(len,width)
+	learnPackageScope()
+	learnSomethingInMainFile()
 	fmt.Printf("Diagonal of the rectangle: %0.2f\n", diagonal)
 	fmt.Printf("Area of the rectangle: %0.2f\n", area)
 
