@@ -77,20 +77,20 @@ func forLoopWithArray(arr [3]int) {
  func learnSlices() {
 	 //Slice có phần tử kiểu T và được biểu thị bằng []T
 	 //Slice là kiểu tham chiếu giá trị
-	 //Tạo slice (từ mảng, từ slice khác -> phụ thuộc, tạo nhanh, tạo bằng hàm make, tạo bằng hàm copy)
+	 //Tạo slice (từ mảng, từ slice khác -> slice mới sẽ tham chiếu đến mảng, slice gốc, tạo nhanh, tạo bằng hàm make, tạo bằng hàm copy)
 	 //Tạo slice từ array
 	 	//->slice chỉ chứa các tham chiếu đến các phần tử của mảng/slice khác
 	 	//->khi phần tử trên slice thay đổi thì chính phần tử đó trong array sẽ bị thay đổi
 	 //Kích thước và sức chứa của một slice có thể thay đổi
 	 	//->Sức chứa của 1 slice được khởi tạo từ 1 arr/slice chính là tổng số lượng phần từ của
-	 	//mảng trừ đi chỉ mục đầu tiền của slice. Bất kỳ thay đổi nào trong khoảng thay đổi này đều dẫn đến sự thay
+	 	//mảng trừ đi chỉ mục đầu tiên của slice. Bất kỳ thay đổi nào trong khoảng thay đổi này đều dẫn đến sự thay
 	 	//đổi của mảng/slice gốc.
 	 //Thêm phần tử cho slice bằng hàm append
 	 	//->Sức chứa của slice sẽ tăng gấp đôi khi số lượng phần từ vượt quá sức chứa trước đó.
-	 	//->Khi đó một slice mới sẽ được tạo ra thay thế cho slice cũ và các phần tử mới không còn làn tham chiều
+	 	//->Khi đó một slice mới sẽ được tạo ra thay thế cho slice cũ và các phần tử mới không còn là tham chiếu
 	 	//đến mảng/slice gốc nữa mà là một bảng copy. Bất kỳ sự thay đổi nào cũng ko làm ảnh hưởng đến mảng/slice gốc.
-	 //Thêm một slice này đến 1 slice khác bằng toán tử ...
-	 //Chúng ta có thể tạo ra một slice mới dựa trên hàm copy mà không cần còn tham chiếu đến mảng/slice cơ sở
+	 //Thêm một slice này đến 1 slice khác bằng toán tử ... -> sliceA = [sliceA,slice1...]
+	 //Chúng ta có thể tạo ra một slice mới dựa trên hàm copy -> không còn tham chiếu đến mảng/slice cơ sở
 
 	 arr1 := [5]int{1,2,3,4,5}
 	 slice1 := arr1[1:4] // len(slice1) = 3, cap(slice) = len(arr1) - 1 = 4
