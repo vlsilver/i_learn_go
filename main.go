@@ -1,58 +1,92 @@
-
-
 package main
 
 import (
 	"fmt"
-	"i_go/rectangle"
-	_"i_go/test_identifier" // import pacakage nhưng không sử dụng bất kì hàm nào
-	"log"
+	_ "fmt"
 )
-// init hàm sẽ được gọi sau khi biến cục bộ được khởi tạo
-// check nếu data cục bộ không thoả yêu cầu sẽ dừng chương trình.
-func init() {
-	fmt.Println("Hàm init() của package main được gọi")
-	if len < 0 || wid < 0 {
-		log.Fatalln("len and wid is less than zero")
-	}
-}
-// biến cục bộ của package được khởi tạo đầu tiên khi package được import
-var len = 10
-var wid = -1
 
 func main() {
-	//packages sinh ra để chúng ta có thể tái sử dụng code hay bảo trì code.
-	//chúng ta chia code ra theo các folder/moudle riêng lẻ.
-	//chúng ta định danh chúng bằng packages
-	//khi sử dụng chúng ta import nó.
+	learnLoop1()
+	learnLoop2()
+	learnLoop3()
+	learnLoop4()
+	learnLoop5()
+	learnLoop6()
+	learnLoop7()
+}
 
-	//Để chỉ định rằng một file mã nguồn cụ thể thuộc về gói nào đó
-	//ta dùng câu lệnh package packagename.
-		//-> và đây là dòng lệnh đầu tiên của mọi file mã nguồn.
+func learnLoop1() {
+	for i := 0; i <= 10; i++ {
+		println("Learn loop1 of i: ", i)
+	}
+}
 
-	//Với các package tuỳ chỉnh ta import bằng cú pháp -> import path
-	//Chỉ những hàm/biến trong packages được viết hoa chữ cái đầu tiên thì mới có thể truy cập
-	//Những method và properties này được gọi là exported
+// learnLoop2 break keywork nếu gặp keywork này thì chương trình sẽ
+//-> sẽ thoát vòng lặp for đang chạy
+func learnLoop2() {
+	for i := 0; i <= 10; i++ {
+		if i > 5 {
+			println("Learn loop2 will break at: ", i)
+			break
+		}
+		println("Learn loop2 of i: ", i)
+	}
+}
 
-	//Mỗi package có thể chứa một hàm tên là init
-		//->Không có paramater, return value -> func init(){}
-		//->Không được gọi một cách tường minh.
-		//->Dùng để thực hiện các nhiệm vụ khởi tạo, xác minh tính chí nh xác của chương tình khi bắt đầu thực hiện
-		//->Một packages có thể có nhiều hàm init - được define trong 1 fine hoặc trong nhiều file
-			//->chúng được gọi theo thứ tự biên dịch
-		//->Thứ tự khởi tạo của một package: biến toàn cục -> init()
-		//->Nếu một package được import trong một package khác
-			//->các packages sẽ được khởi tạo trước tiên
-			//Một package sẽ được khởi tạo một lần duy nhất
-		//Sử dụng blank identifier (định danh trống)
-			//->Khi chúng ta import một package mà không sử dụng sẽ bị xem là không hợp lê.
-			//->Nếu muốn import trước một số package mà không dùng ngay bây giờ, có thể thực hiện bằng bách.
-				//->giả định sử dụng packages: -> var A = package.Functionname -> khuyến khích sử dụng
-				//->chỉ dùng để đảm bảo việc khởi tạo, không cần sử dụng bất kỳ hàm, biến nào của package -> import (_ "namepackage")
-	var len,width float64 = 6,7
-	var diagonal = retangle.Diagonal(len,width)
-	var area = retangle.Area(len,width)
-	fmt.Printf("Diagonal of the rectangle: %0.2f\n", diagonal)
-	fmt.Printf("Area of the rectangle: %0.2f\n", area)
+// learnLoop3 continue keywork gặp keywork này chương trình sẽ bỏ qua các dòng lệnh còn lại
+func learnLoop3() {
+	for i := 0; i <= 10; i++ {
+		if i == 3 {
+			println("Learn loop3 will continue at: ", i)
+			continue
+		}
+		a := i
+		println("Learn loop3 will have a with value: ", a)
+	}
+}
 
+// learnLoop4 rút gọn for
+func learnLoop4() {
+	i := 0
+	for i <= 10 {
+		println("Learn loop4 with i:", i)
+		i++
+	}
+}
+
+// learnLoop5 khai báo nhiều biến
+func learnLoop5() {
+	for i, j := 0, 3; i != 10; i = j + 1 {
+		j++
+		fmt.Printf("Learn loop5 will have a with value: i-%v j-%v\n", i, j)
+	}
+}
+
+// learnLoop6 vòng lặp vô hạn
+func learnLoop6() {
+	var i int
+	for {
+		if i > 10 {
+			break
+		}
+		i++
+		fmt.Println("Learn loop6 will have a with value:", i)
+	}
+}
+
+// learnLoop7 vòng lặp với array, slice
+func learnLoop7() {
+	slice := []int{412, 3412, 4343, 554, 434, 54}
+	//standard
+	for i := 0; i < len(slice); i++ {
+		fmt.Printf("Learn Loop7 with i:%v,slice element %v\n", i, slice[i])
+	}
+	//rút gọn
+	for i, value := range slice {
+		fmt.Printf("Learn Loop7 with i:%v,slice element %v\n", i, value)
+	}
+	//không dùng một trong 2
+	for _, value := range slice {
+		fmt.Printf("Learn Loop7 with slice element %v\n", value)
+	}
 }
