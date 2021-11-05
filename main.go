@@ -8,11 +8,11 @@ func main() {
 	//Giá trị biến là hằng số và không được thay đổi.
 	//Giá trị của 1 hằng số cần được biết ngay tại thời gian biên dịch.
 	//Vì vậy giá trị gán cho nó cũng phải là 1 constant.
+	//Kiểu của một hằng số là untyped(không có kiểu).
+		//->Hằng số chỉ cung cấp type mặc định của mình khi có dòng lệnh nào đó yêu cầu.
+		//->Để tạo ra một biến const có kiểu xác định ta thực hiện. -> const variable type = "vlsilver"
 	const constA = 55
 	//const constError = math.Abs(4) -- error
-	//Kiểu của một hằng số là untyped(không có kiểu).
-	//Hằng số chỉ cung cấp type mặc định của mình khi có dòng lệnh nào đó yêu cầu.
-	//Để tạo ra một biến const có kiểu xác định ta thực hiện.
 	const name = "vlsilver" // type name is untyped
 	const age = 10 // type age is untyped
 	const ageInt int = 10 // tạo ra hằng số ageInt với một type chỉ định
