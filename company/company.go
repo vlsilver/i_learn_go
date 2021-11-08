@@ -39,9 +39,9 @@ func (contract Contract) Calculate() int {
 	return contract.BasicPay
 }
 
-func CalculatorOfEmployee(employee []SalaryCalculator)int  {
+func CalculatorOfEmployee(employee []SalaryCalculator) int {
 	totalSalary := 0
-	for _,e := range employee {
+	for _, e := range employee {
 		totalSalary += e.Calculate()
 	}
 	return totalSalary

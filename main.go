@@ -34,8 +34,7 @@ Interface rỗng
 -> Một interface không có method thì được gọi là interface rỗng.
 -> Nó được biểu diễn dưới dạng interface{}
 -> Mặc định tất cả các type dữ liệu đều là implement interface rỗng.
-*/
-func describe(i interface{}) {
+*/func describe(i interface{}) {
 	fmt.Printf("Type = %T, value = %v\n", i, i)
 }
 
@@ -79,5 +78,8 @@ func findEmployee(i interface{})  {
 	default:
 		fmt.Println("Unknow Employee\n")
 	}
-
 }
+/*
+Triển khai interface sử dụng con trỏ và giá trị
+->
+ */
